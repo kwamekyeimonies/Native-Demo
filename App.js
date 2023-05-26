@@ -5,25 +5,22 @@ import { Button, Linking, StyleSheet, Text, View } from 'react-native';
 
 export default function App()
 {
-  const [name, setName] = useState("Tenkorang Daniel");
-  const [session, setSession] = useState({ number: 6, title: "state" });
-  const [current, setCurrent] = useState(true);
+  const [currentValue, setCurrentValue] = useState(0);
 
   const onClickNameChanger = () =>
   {
-    setName("Kwame Daniel")
-    setSession({ number: 100, title: "Demo sessions" })
-    setCurrent(false)
+
+  }
+
+  const Multiplier = () =>
+  {
+    setCurrentValue(currentValue + 5)
   }
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>My name is {name}</Text>
-      <Text style={styles.text}>This session number is {session.number} and about {session.title} </Text>
-      <Text style={styles.text}>{
-        current ? "Current sesion" : "Next Session"
-      } </Text>
-      <Button title='Change Name' onPress={onClickNameChanger} />
+      <Text style={styles.text}>{currentValue} </Text>
+      <Button title='Add Me' onPress={Multiplier} />
 
     </View>
   );
@@ -37,7 +34,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   text: {
-    color: "red",
+    // color: "red",
     fontSize: 20,
     fontStyle: 'italic',
   }
